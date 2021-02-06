@@ -1,0 +1,58 @@
+package com.selenium.Test1;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+public class Third {
+
+public static void main(String args[])
+{
+String userName="vinay.jadhav161773";
+ String pass ="Chatrapati";
+ String toAddress="adityamcoe1998@gmail.com";
+ String subject="WebDriver - Selenium Testing";
+ 
+ System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\eclipse-workspace1\\S\\src\\Driver\\chromedriver.exe");
+ WebDriver driver=new ChromeDriver();
+
+      driver.get("https://www.gmail.com");
+ //Login
+ driver.findElement(By.name("identifier")).sendKeys(userName);
+driver.findElement(By.id("identifierNext")).click();
+
+ driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+driver.findElement(By.name("password")).sendKeys(pass);
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/span")).click();
+//CwaK9
+//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+ //click on Compose button
+driver.findElement(By.xpath("//*[@id=\":4x\"]/div/div")).click();
+
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+ //enter TO address & Subject
+driver.findElement(By.name("to")).sendKeys(toAddress);
+
+      driver.findElement(By.name("subjectbox")).sendKeys(subject);
+ 
+ //click Send button
+     //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+ driver.findElement(By.id(":9l")).click();
+ driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+ //Logout from Gmail
+ driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div/a/span")).click();
+ driver.findElement(By.xpath("//*[@id=\"gb_71\"]")).click();
+ 
+}
+
+
+}
